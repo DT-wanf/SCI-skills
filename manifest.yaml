@@ -1,0 +1,168 @@
+name: sci-skill
+version: 1.3.0
+description: Declarative routing for the SCI保姆 stage-gated paper workflow.
+
+always_load:
+  - references/core/operating-principles.md
+  - references/core/beginner-guidance.md
+  - references/core/action-routing.md
+  - references/core/data-sufficiency-gate.md
+  - references/evidence-integrity.md
+
+entry_routes:
+  beginner_start:
+    detect: The user has only a direction, topic, or uncertainty and needs guided intake.
+  project_continue:
+    detect: The user says continue, provides a state card, or refers to an existing project.
+  direct_task:
+    detect: The user asks for one bounded task such as polishing, figures, PPT, review, or response.
+  artifact_review:
+    detect: The user uploads a draft, dataset description, result, reviewer letter, or stage deliverable for checking.
+
+paper_families:
+  E: empirical
+  I: interpretive
+  M: method-application
+  T: theoretical
+  R: review
+
+capabilities:
+  literature-search: references/capabilities/literature-search.md
+  paper-deep-reading: references/capabilities/paper-deep-reading.md
+  manuscript-writing: references/capabilities/manuscript-writing.md
+  academic-polishing: references/capabilities/academic-polishing.md
+  scientific-figures: references/capabilities/scientific-figures.md
+  paper-presentation: references/capabilities/paper-presentation.md
+  statistical-reporting: references/capabilities/statistical-reporting.md
+  presubmission-review: references/capabilities/presubmission-review.md
+  reviewer-response: references/capabilities/reviewer-response.md
+  data-availability: references/capabilities/data-availability.md
+  web-data-acquisition: references/capabilities/web-data-acquisition.md
+
+capability_required_references:
+  scientific-figures:
+    - references/core/figure-readiness-gate.md
+
+capability_activation_conditions:
+  web-data-acquisition:
+    require_all:
+      - data_sufficiency in [ABSENT, INSUFFICIENT]
+      - web_evidence_methodologically_appropriate is true
+    block_if:
+      - data_sufficiency in [UNKNOWN, SUFFICIENT]
+      - critical_gap_repairable_by_cleaning_derivation_or_existing_linkage is true
+
+crawl_activation_conditions:
+  require_all:
+    - web-data-acquisition is active
+    - non_crawl_routes_checked is true
+    - non_crawl_routes_adequate is false
+    - crawl_permission_status is acceptable
+    - crawl_necessity is JUSTIFIED
+
+figure_activation_conditions:
+  planning:
+    allow_if_any:
+      - a manuscript location would benefit from a result, explanatory, or enhancement figure
+      - the user explicitly requests figure planning, creation, adaptation, or review
+  result_rendering:
+    require_all:
+      - figure_class is RESULT
+      - real_data_or_verified_result_files_available is true
+      - variable_metric_and_transformation_definitions_available is true
+      - plotting_backend in [python, r]
+      - plotting_source_available is true
+      - actual_execution_evidence_available is true
+      - rendered_values_trace_to_inputs is true
+    block_if_any:
+      - only_textual_conclusion_is_available is true
+      - simulated_or_invented_values_used_as_results is true
+      - image_generation_model_used_for_result_pixels is true
+      - execution_is_unverified is true
+  explanatory_or_enhancement_rendering:
+    require_all:
+      - figure_class in [EXPLANATORY, ENHANCEMENT]
+      - manuscript_location_and_purpose_proposed is true
+      - content_and_decomposition_plan_disclosed is true
+      - user_rendering_approval is true
+  final_insertion:
+    require_all:
+      - rendered_figure_qa_passed is true
+      - user_final_approval is true
+
+stage_capability_candidates:
+  E1: [literature-search]
+  E2: [literature-search, paper-deep-reading]
+  E3: [paper-deep-reading, scientific-figures]
+  E4: [web-data-acquisition, statistical-reporting, data-availability]
+  E5: [web-data-acquisition, statistical-reporting, scientific-figures, data-availability]
+  E6: [manuscript-writing, academic-polishing, scientific-figures]
+  E7: [academic-polishing, presubmission-review, reviewer-response, data-availability, paper-presentation]
+  I1: [literature-search]
+  I2: [web-data-acquisition, literature-search, paper-deep-reading]
+  I3: [paper-deep-reading]
+  I4: [paper-deep-reading]
+  I5: [manuscript-writing]
+  I6: [manuscript-writing, academic-polishing]
+  I7: [academic-polishing, presubmission-review, reviewer-response, paper-presentation]
+  M1: [literature-search]
+  M2: [literature-search, paper-deep-reading]
+  M3: [scientific-figures, manuscript-writing]
+  M4: [scientific-figures, data-availability]
+  M5: [statistical-reporting, scientific-figures]
+  M6: [manuscript-writing, academic-polishing]
+  M7: [academic-polishing, presubmission-review, reviewer-response, data-availability, paper-presentation]
+  T1: [literature-search]
+  T2: [literature-search, paper-deep-reading]
+  T3: [paper-deep-reading, manuscript-writing]
+  T4: [manuscript-writing, scientific-figures]
+  T5: [manuscript-writing, academic-polishing]
+  T6: [manuscript-writing, academic-polishing]
+  T7: [academic-polishing, presubmission-review, reviewer-response, data-availability, paper-presentation]
+  R1: [literature-search]
+  R2: [literature-search]
+  R3: [literature-search, paper-deep-reading]
+  R4: [paper-deep-reading, scientific-figures]
+  R5: [paper-deep-reading, manuscript-writing]
+  R6: [manuscript-writing, academic-polishing, scientific-figures]
+  R7: [literature-search, academic-polishing, presubmission-review, reviewer-response, data-availability, paper-presentation]
+
+action_defaults:
+  prompt_first:
+    [E1, E3, E4, E6, I1, I3, I5, I6, M1, M3, M6, T1, T3, T4, T5, T6, R1, R4, R5, R6]
+  conditional_external:
+    [E2, E5, E7, I2, I4, I7, M2, M4, M5, M7, T2, T7, R2, R3, R7]
+
+external_playbooks:
+  literature-database-export: references/action-playbooks/literature-database-export.md
+  empirical-data-and-experiment: references/action-playbooks/empirical-data-and-experiment.md
+  text-and-archive-collection: references/action-playbooks/text-and-archive-collection.md
+  prototype-and-validation: references/action-playbooks/prototype-and-validation.md
+  submission-platform: references/action-playbooks/submission-platform.md
+  web-data-collection: references/action-playbooks/web-data-collection.md
+
+stage_external_playbooks:
+  E2: literature-database-export
+  E5: empirical-data-and-experiment
+  E7: submission-platform
+  I2: text-and-archive-collection
+  I4: text-and-archive-collection
+  I7: submission-platform
+  M2: literature-database-export
+  M4: prototype-and-validation
+  M5: prototype-and-validation
+  M7: submission-platform
+  T2: literature-database-export
+  T7: submission-platform
+  R2: literature-database-export
+  R3: literature-database-export
+  R7: submission-platform
+
+stage_external_playbook_candidates:
+  E5: [empirical-data-and-experiment, web-data-collection]
+  I2: [text-and-archive-collection, web-data-collection]
+
+loading_limits:
+  current_stage_modules: 1
+  primary_capabilities: 2
+  external_playbooks: 1

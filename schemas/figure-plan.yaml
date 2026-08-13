@@ -1,0 +1,42 @@
+version: 1.0
+project_id: null
+target_journal: null
+manuscript_language: null
+
+figure_map:
+  - figure_id: null
+    proposed_number: null
+    manuscript_section: null
+    placement_anchor: null
+    priority: null
+    figure_class: null
+    working_title: null
+    communication_purpose: null
+    content_boundary: null
+    readiness: NOT_READY
+    panels: []
+    architecture_options: []
+    selected_architecture: null
+    required_materials: []
+    result_inputs: []
+    plotting_backend: null
+    plotting_source: null
+    execution_evidence: []
+    reference_images: []
+    reference_adaptation_mode: null
+    attribution_requirement: null
+    user_rendering_choice: null
+    rendering_status: not_started
+    rendered_outputs: []
+    qa_status: not_started
+    user_final_choice: null
+    manuscript_insertion_status: blocked
+
+allowed_values:
+  priority: [ESSENTIAL_EVIDENCE, STRONGLY_RECOMMENDED_EXPLANATION, OPTIONAL_ENHANCEMENT]
+  figure_class: [RESULT, EXPLANATORY, ENHANCEMENT]
+  readiness: [NOT_READY, PLAN_READY, RENDER_READY, REVISION_READY]
+  reference_adaptation_mode: [structural, stylistic, close-redraw]
+  rendering_status: [not_started, planned, running, rendered, blocked]
+  qa_status: [not_started, failed, passed_with_notes, passed]
+  manuscript_insertion_status: [blocked, allowed, inserted]

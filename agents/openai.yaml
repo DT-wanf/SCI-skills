@@ -1,0 +1,13 @@
+interface:
+  display_name: SCI-skill
+  short_description: 先评估现有数据，再推进选题、分析、写作与投稿的论文助手
+  default_prompt: 使用 $sci-skill（宝宝巴士）先评估我的现有材料和数据是否够用，再按正确阶段推进论文。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

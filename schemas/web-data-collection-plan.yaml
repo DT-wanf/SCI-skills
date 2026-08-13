@@ -1,0 +1,97 @@
+plan_version: 1.1
+status: draft
+
+activation_gate:
+  data_sufficiency: UNKNOWN | SUFFICIENT | INSUFFICIENT | ABSENT
+  critical_gap: null
+  cleaning_or_derivation_can_repair: null
+  web_evidence_methodologically_appropriate: null
+  acquisition_activated: false
+
+crawl_gate:
+  crawl_necessity: BLOCKED | JUSTIFIED
+  existing_data_checked: false
+  official_download_or_api_checked: false
+  open_repository_checked: false
+  paid_licensed_source_checked: false
+  authorized_export_checked: false
+  rejection_reasons: {}
+  permission_status: null
+  justification: null
+
+research_link:
+  research_question: null
+  intended_inference: null
+  unit_of_analysis: null
+  constructs: []
+  observable_signals: []
+
+scope:
+  population: null
+  time_range: null
+  geography: null
+  languages: []
+  inclusion_rules: []
+  exclusion_rules: []
+  sampling_rule: null
+  stopping_rule: null
+  expected_volume: null
+
+source_options: []
+selected_source:
+  name: null
+  official_url: null
+  source_family: null
+  access_route: null
+  access_status: free | paid | institutional | mixed | unknown
+  price_model: null
+  price_verified_on: null
+  license: null
+  research_use_rights: null
+  export_or_api_limits: null
+  free_alternative: null
+  selection_reason: null
+
+output:
+  format: csv
+  record_key: null
+  content_fields: []
+  provenance_fields:
+    - source_name
+    - source_url_or_record_id
+    - collected_at
+    - query_or_filter
+    - page_or_cursor
+    - raw_record_reference
+
+compliance:
+  official_documentation_checked: false
+  terms_checked: false
+  robots_checked_if_crawling: false
+  privacy_reviewed: false
+  ethics_reviewed: false
+  copyright_reviewed: false
+  unresolved_items: []
+
+pilot:
+  target_size: null
+  status: not_started
+  critical_fields_present: null
+  parsing_accuracy_checked: false
+  missingness_summary: null
+  duplicate_summary: null
+  bias_notes: []
+  decision: null
+
+full_collection:
+  status: not_started
+  raw_files: []
+  data_dictionary: null
+  collection_log: null
+  final_record_count: null
+  known_failures: []
+
+post_collection_review:
+  user_decision: not_requested
+  requested_changes: []
+  cleaning_handoff: blocked

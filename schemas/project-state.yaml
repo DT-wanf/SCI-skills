@@ -1,0 +1,126 @@
+project_id: null
+product_name: SCI保姆
+assistant_name: 宝宝巴士
+invocation_aliases: [宝宝巴士, 山海]
+guidance_level: beginner
+entry_route: null
+
+research_direction: null
+working_title: null
+primary_paper_family: null
+secondary_attribute: null
+family_confidence: null
+user_reported_stage: null
+diagnosed_stage: null
+stage_confidence: null
+execution_mode: null
+action_route: null
+active_capabilities: []
+external_playbook: null
+
+target:
+  journal: null
+  article_type: null
+  language: null
+  deadline: null
+  requirements_source: null
+  requirements_verified_on: null
+
+available_resources:
+  literature: []
+  data: []
+  primary_texts: []
+  code: []
+  experiments: []
+  results: []
+  manuscript: []
+  figures: []
+  reviewer_materials: []
+  external_requirements: []
+
+data_sufficiency:
+  status: UNKNOWN
+  assessed_on: null
+  evidence_reviewed: []
+  research_question_fit: null
+  unit_and_population_fit: null
+  critical_fields_fit: null
+  time_geography_language_fit: null
+  sample_and_method_fit: null
+  provenance_and_rights_fit: null
+  cleaning_repairable_issues: []
+  critical_unrepairable_gaps: []
+  acquisition_needed: null
+  acquisition_type: null
+
+data_acquisition:
+  status: NOT_NEEDED_OR_NOT_ASSESSED
+  research_question_link: null
+  unit_of_analysis: null
+  time_scope: null
+  geographic_scope: null
+  candidate_sources: []
+  selected_source: null
+  acquisition_route: null
+  access_cost: null
+  license_status: null
+  permissions_status: null
+  output_schema: null
+  sampling_rule: null
+  pilot_status: not_started
+  full_collection_status: not_started
+  provenance_record: null
+  user_review_status: not_requested
+  cleaning_handoff_status: blocked
+  crawl_necessity: BLOCKED
+  non_crawl_routes_checked: []
+  non_crawl_route_rejections: {}
+  crawl_justification: null
+
+figure_workflow:
+  readiness: NOT_READY
+  active_figure_id: null
+  figure_map: []
+  proposed_locations: []
+  pending_user_choices: []
+  result_input_files: []
+  plotting_backend: null
+  plotting_source: null
+  execution_evidence: []
+  rendered_outputs: []
+  reference_images: []
+  reference_adaptation_mode: null
+  qa_status: not_started
+  user_rendering_approval: not_requested
+  user_final_approval: not_requested
+  manuscript_insertion_status: blocked
+
+stage_status:
+  passed: []
+  partially_passed: []
+  failed: []
+  not_assessed: []
+
+field_status:
+  verified: {}
+  pending_verification: {}
+  inferred: {}
+  missing_required: []
+  missing_optional: []
+  evidence_locked: []
+
+terminology_ledger: []
+claim_evidence_ledger: []
+completed_outputs: {}
+manual_verification_items: []
+current_blockers: []
+
+next_action:
+  type: null
+  stage: null
+  prompt_generated: false
+  operation_guide_generated: false
+  expected_return_materials: []
+
+style_profile: schemas/user-style-profile.yaml
+last_updated: null

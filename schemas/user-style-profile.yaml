@@ -1,0 +1,36 @@
+guidance_level: beginner
+conversation_language: zh
+manuscript_language: null
+target_journal: null
+
+figure:
+  annotation_language: en
+  english_font: Times New Roman
+  chinese_font: Microsoft YaHei
+  palette: colorblind-aware
+  preferred_backend: null
+  export_formats: [svg, pdf, tiff]
+  group_color_map: {}
+  method_color_map: {}
+  module_color_map: {}
+  line_style_map: {}
+  marker_map: {}
+  preferred_panel_label_case: null
+  preferred_reference_adaptation: structural
+
+presentation:
+  explanation_language: zh
+  preserve_english_scientific_labels: true
+  chinese_font: Microsoft YaHei
+  english_font: Times New Roman
+  speaker_notes: true
+
+writing:
+  preserve_claim_strength: true
+  terminology_ledger: true
+  show_revision_reasons: false
+
+prompt:
+  max_missing_questions_per_round: 3
+  allow_unknown_as_zanwu: true
+  auto_fill_verified_context: true

@@ -1,0 +1,52 @@
+version: 1.0
+figure_id: null
+figure_class: null
+readiness_at_render: null
+
+source_and_execution:
+  real_inputs: []
+  input_semantics_verified: false
+  transformations_declared: false
+  plotting_backend: null
+  plotting_source: null
+  execution_command: null
+  execution_log_or_receipt: null
+  execution_verified: false
+  traceability_verified: false
+  simulated_or_invented_result_values_detected: null
+  image_generation_used_for_result_pixels: false
+
+scientific_content:
+  units_checked: false
+  groups_and_sample_sizes_checked: false
+  uncertainty_checked: false
+  statistical_annotations_checked: false
+  missingness_and_exclusions_checked: false
+  mechanism_or_causal_scope_checked: false
+
+visual_checks:
+  final_size_checked: false
+  text_readable: false
+  clipping_or_overlap: null
+  panels_aligned: false
+  color_and_redundant_encoding_checked: false
+  grayscale_checked_if_relevant: false
+  manuscript_wide_mappings_consistent: false
+
+export_checks:
+  outputs: []
+  editable_vector_available: false
+  raster_resolution_checked: false
+  dimensions_checked: false
+  output_files_opened: false
+
+reference_adaptation:
+  reference_used: false
+  ownership_or_license_status: null
+  adaptation_mode: null
+  attribution_resolved: null
+
+qa_result: not_started
+qa_notes: []
+user_final_choice: null
+manuscript_insertion_status: blocked
